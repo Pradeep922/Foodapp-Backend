@@ -3,7 +3,6 @@ var router = express.Router();
 const {mongodb,dbUrl} = require('../config/dbConfig')
 const {mongoose,usersModel,foodModel,orderModel} = require('../config/dbSchema')
 const {hashPassword,hashCompare,createToken,decodeToken,validateToken,adminGaurd} = require('../config/auth')
-mongoose.set("strictQuery", false);
 mongoose.connect(dbUrl)
 
 router.get('/all-food',validateToken,async(req, res)=>{
